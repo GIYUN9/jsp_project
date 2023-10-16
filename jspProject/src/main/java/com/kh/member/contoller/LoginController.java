@@ -45,7 +45,7 @@ public class LoginController extends HttpServlet {
 		
 		Member loginUser = new MemberService().loginMember(userId, userPwd);
 		
-		System.out.println(loginUser);
+//		System.out.println(loginUser);
 		
 		/**
 		 * 

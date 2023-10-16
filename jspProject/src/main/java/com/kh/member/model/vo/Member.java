@@ -20,7 +20,8 @@ public class Member {
 	public Member() {
 		
 	}
-
+	
+	// 모든 매개변수가 있는 생성자
 	public Member(int userNo, String userId, String userPwd, String userName, String phone, String email,
 			String address, String interest, Date enrollDate, Date modifyDate, String status) {
 		super();
@@ -35,6 +36,19 @@ public class Member {
 		this.enrollDate = enrollDate;
 		this.modifyDate = modifyDate;
 		this.status = status;
+	}
+	
+	// 회원가입시 생성자
+	public Member(String userId, String userPwd, String userName, String phone, String email, String address,
+			String interest) {
+		super();
+		this.userId = userId;
+		this.userPwd = userPwd;
+		this.userName = userName;
+		this.phone = phone;
+		this.email = email;
+		this.address = address;
+		this.interest = interest;
 	}
 
 	public int getUserNo() {
