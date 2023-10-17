@@ -38,7 +38,7 @@
         <br>
         <h2 align="center">마이페이지</h2>
 
-        <form action="" id="mypage-form" method="post">
+        <form action="<%=contextPath %>/update.me" id="mypage-form" method="post">
             <table>
                 <tr>
                     <td>* 아이디</td>
@@ -100,19 +100,96 @@
             			input.checked = true; // 해당 input의 checked는 true로 변경한다(체크처리)
             		}
             	}
+            	
             </script>
 
             <br><br>
 
             <div align = "center">
-                <button type="submit" >정보변경</button>
-                <button type="button">비밀번호변경</button>
-                <button type="button">회원탈퇴</button>
+                <button type="submit" class="btn btn-sm btn-secondary">정보변경</button>
+                <button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#updatePwdModal">비밀번호변경</button>
+                <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">회원탈퇴</button>
             </div>
 
             <br><br>
 
         </form>
+    </div>
+
+    <!-- 비밀번호 변경용 Modal -->
+    <div class="modal" id="updatePwdModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+        
+                <!-- Modal Header -->
+                <div class="modal-header">
+                <h4 class="modal-title">비밀번호 변경</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+        
+                <!-- Modal body -->
+                <div class="modal-body" align="center">
+                    <form action="<%=contextPath %>/updatePwd.me" method="post">
+                        <input type="hidden" name="userId" value="<%=userId %>">
+                        <table>
+                            <tr>
+                                <td>현재 비밀번호</td>
+                                <td><input type="password" name="userPwd" required></td>
+                            </tr>
+                            <tr>
+                                <td>변경할 비밀번호</td>
+                                <td><input type="password" name="updatePwd" required></td>
+                            </tr>
+                            <tr>
+                                <td>변경할 비밀번호 확인</td>
+                                <td><input type="password" name="checkPwd" required></td>
+                            </tr>
+                        </table>
+                        <br>
+                        <button id="edit-pwd-btn" type="submit" class="btn btn-sm btn-secondary">비밀번호 변경</button>
+                    </form>
+
+                    <script>
+                        document.getElementById('edit-pwd-btn').onclick = function(){
+
+                            if ($("input[name=updatePwd]").val() !== $("input[name=checkPwd]").val()) {
+                                alert("비밀번호를 확인해주세요.");
+                                return false;
+                            }
+                            
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+     <!-- 회원 탈퇴용 Modal -->
+    <div class="modal" id="deleteModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+        
+                <!-- Modal Header -->
+                <div class="modal-header">
+                <h4 class="modal-title">회원탈퇴</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+        
+                <!-- Modal body -->
+                <div class="modal-body" align="center">
+                    <form action="<%=contextPath%>/delete.me" method="post">
+                    	<b>탈퇴 후 복구가 불가능합니다. <br> 정말로 탈퇴 하시겠습니까? </b>
+                    	<br><br>
+                    	
+                    	<input type="hidden" name="userId" value="<%=userId %>">
+                    	
+                    	비밀번호 : <input type="password" name="userPwd" required>
+                    	<br><br>
+                    	<button type="submit" class="btn btn-sm btn-danger">탈퇴하기</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
