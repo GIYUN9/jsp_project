@@ -63,7 +63,7 @@
             <%if(loginUser != null&& loginUser.getUserId().equals(n.getNoticeWriter())) { %>
             <!-- 현재 로그인한 사용자가 해당 글을 쓴 본인일떄만 -->
 	            <a href="<%=contextPath %>/updateForm.no?num=<%=n.getNoticeNo() %>" class="btn btn-sm btn-warning">수정하기</a>
-	            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#???">삭제하기</button>
+	            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteNoticeModal">삭제하기</button>
             <%} %>
         </div>
     </div>
@@ -81,14 +81,12 @@
             
                     <!-- Modal body -->
                     <div class="modal-body" align="center">
-                        <form action="<%=contextPath%>/???" method="post">
+                        <form action="<%=contextPath%>/deleteNotice.me?num=<%=n.getNoticeNo() %>" method="post">
                             <b>삭제 후 복구가 불가능합니다. <br> 정말로 삭제 하시겠습니까? </b>
                             <br><br>
                             
-                            <input type="hidden" name="userId" value="<%=userId %>">
                             
-                            비밀번호 : <input type="password" name="userPwd" required>
-                            <br><br>
+                            <br>
                             <button type="submit" class="btn btn-sm btn-danger">삭제하기</button>
                         </form>
                     </div>

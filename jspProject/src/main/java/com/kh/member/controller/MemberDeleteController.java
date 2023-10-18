@@ -31,7 +31,7 @@ public class MemberDeleteController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("삭제 요청 완료");
+//		System.out.println("삭제 요청 완료");
 		
 		/**
 		 * 요청 실행할 sql
