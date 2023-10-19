@@ -13,7 +13,7 @@ import com.kh.notice.model.service.NoticeService;
 /**
  * Servlet implementation class NoticeDeleteController
  */
-@WebServlet("/deleteNotice.me")
+@WebServlet("/delete.no")
 public class NoticeDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -31,21 +31,20 @@ public class NoticeDeleteController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		System.out.println("deleteNotice.me입니다.");
 		//인코딩
-		request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8"); //안해도됨
 		
 		//요청시 전달된 데이터 추출 및 저장
 		int noticeNo = Integer.parseInt(request.getParameter("num"));
 		
 		int result = new NoticeService().deleteNotice(noticeNo);
-		HttpSession session = request.getSession();
 		
 		//응답뷰
 		if(result > 0) {
-			session.setAttribute("alertMsg", "성공적으로 공지사항이 삭제되었습니다.");
+			request.setAttribute("alertMsg", "성공적으로 공지사항이 삭제되었습니다.");
 			response.sendRedirect(request.getContextPath() + "/list.no");
 		} else {
-			session.setAttribute("alertMsg", "공지사항 삭제에 실패하였습니다.");
-			response.sendRedirect(request.getContextPath() + "/list.no");
+			request.setAttribute("alertMsg", "공지사항 삭제에 실패하였습니다.");
+			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 		}
 	}
 

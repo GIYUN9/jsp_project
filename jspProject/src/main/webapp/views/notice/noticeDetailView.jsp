@@ -81,7 +81,7 @@
             
                     <!-- Modal body -->
                     <div class="modal-body" align="center">
-                        <form action="<%=contextPath%>/deleteNotice.me?num=<%=n.getNoticeNo() %>" method="post">
+                        <form action="<%=contextPath%>/delete.no?num=<%=n.getNoticeNo() %>" method="post">
                             <b>삭제 후 복구가 불가능합니다. <br> 정말로 삭제 하시겠습니까? </b>
                             <br><br>
                             
