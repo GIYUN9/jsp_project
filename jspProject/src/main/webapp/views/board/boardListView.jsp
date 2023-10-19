@@ -81,16 +81,9 @@
 
         <div class="paging-area" align="center">
         <!-- 스클립틀릿사용해서 for문으로 불러와진 Board 의 리스트 수만큼 보여지게 -->
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button>10</button>
+        <%for(int i = pi.getStartPage(); i < pi.getEndPage()+1; i++){ %>
+            <button><%=i %></button>
+            <%} %>
             <button>&gt;</button>
         </div>
 

@@ -118,6 +118,4 @@ public class Board {
 				+ ", createDate=" + createDate + ", status=" + status + "]";
 	}
 
-	
-	
 }
