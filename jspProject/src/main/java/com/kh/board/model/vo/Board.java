@@ -28,7 +28,7 @@ public class Board {
 		this.status = status;
 	}
 
-	//list에서 사용할 생성자
+	//list에서 사용하는 생성자
 	public Board(int boardNo, String category, String boardTitle, String boardWriter, int count, String createDate) {
 		super();
 		this.boardNo = boardNo;
@@ -38,11 +38,24 @@ public class Board {
 		this.count = count;
 		this.createDate = createDate;
 	}
+	
+	//board디테일 페이지에서 사용하는 생성자
+	public Board(int boardNo, String category, String boardTitle, String boardContent, String boardWriter,
+			String createDate) {
+		super();
+		this.boardNo = boardNo;
+		this.category = category;
+		this.boardTitle = boardTitle;
+		this.boardContent = boardContent;
+		this.boardWriter = boardWriter;
+		this.createDate = createDate;
+	}
 
 	public int getBoardNo() {
 		return boardNo;
 	}
 
+	
 	public void setBoardNo(int boardNo) {
 		this.boardNo = boardNo;
 	}
