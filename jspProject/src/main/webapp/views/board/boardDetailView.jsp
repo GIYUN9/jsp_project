@@ -78,8 +78,8 @@
 			
 			<%if(loginUser != null && loginUser.getUserId().equals(b.getBoardWriter())){ %>
 	            <!-- 로그인한 사용자가 게시글의 사용자일 경우 사용가능 -->
-	            <a href="<%=contextPath %>/updateForm.bo?bno=<%=b.getBoardNo() %>" class="btn btn-sm btn-warning">수정하기</a>
-	            <a href="" class="btn btn-sm btn-danger">삭제하기</a>
+	            <a href="<%=contextPath %>/updateForm.bo?bno=<%=b.getBoardNo()%>" class="btn btn-sm btn-warning">수정하기</a>
+	            <a href="<%=contextPath %>/delete.bo?bno=<%=b.getBoardNo()%>" class="btn btn-sm btn-danger">삭제하기</a>
             <%} %>
         </div>
     </div>
